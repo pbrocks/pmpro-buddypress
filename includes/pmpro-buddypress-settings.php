@@ -109,6 +109,7 @@ function pmpro_bp_buddpress_admin_page() {
 	} // default to showing Level on BuddyPress Profile ?>
 	<div class="wrap">
 	<h2>PMPro BuddyPress Settings</h2>
+	<p class="description">The PMPro BuddyPress Add On enhances your BuddyPress site in a number of ways. We've included helpful information above to get you started. Click on the help tab in the upper right.</p>
 		<form action="" method="post" enctype="multipart/form-data">
 		
 		<table class="form-table">
