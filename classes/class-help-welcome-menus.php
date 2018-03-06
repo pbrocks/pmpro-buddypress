@@ -45,10 +45,12 @@ class Help_Welcome_Menus {
 	 * Display the plugin pmprobp message
 	 */
 	public function pmprobp_message() {
-		echo '<div class="wrap">';
+		// echo '<div class="wrap">';
+		require_once( PMPRO_DIR . '/adminpages/admin_header.php' );
 		echo '<h2>' . __FUNCTION__ . '</h2>';
 		echo '<h3>' . __FILE__ . '</h3>';
-		echo '</div>';
+		require_once( PMPRO_DIR . '/adminpages/admin_footer.php' );
+		// echo '</div>';
 	}
 
 	/**

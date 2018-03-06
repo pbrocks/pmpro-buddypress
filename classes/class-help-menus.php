@@ -53,47 +53,6 @@ class Help_Menus {
 		$the_query = new WP_Query( $args );
 	}
 
-	public static function pbrx_add_help() {
-		// We are in the correct screen because we are taking advantage of the load-* action (below)
-		$screen = get_current_screen();
-		// $screen->remove_help_tabs();
-		$screen->add_help_tab(
-			array(
-				'id'       => 'pbrx-default',
-				'title'    => __( 'Default' ),
-				'content'  => 'This is where I would provide tabbed help to the user on how everything in my admin panel works. Formatted HTML works fine in here too',
-			)
-		);
-		// add more help tabs as needed with unique id's
-		// Help sidebars are optional
-		$screen->set_help_sidebar(
-			'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-			'<p><a href="http://wordpress.org/support/" target="_blank">' . _( 'Support Forums' ) . '</a></p>'
-		);
-	}
-
-	// global $pbrx_hook;
-	// if ( $pbrx_hook ) {
-	// add_action( 'load-' . $pbrx_hook, 'pbrx_add_help' );
-	// }
-	public static function nacin_add_special_theme_page() {
-		// $theme_page = add_theme_page( ... );
-		// if ( $theme_page ) {
-		// add_action( 'load-' . $theme_page, 'nacin_add_help_tabs_to_theme_page' );
-		// }
-	}
-	public static function nacin_add_help_tabs_to_theme_page() {
-		$screen = get_current_screen();
-		$screen->add_help_tab(
-			array(
-				'id'      => 'additional-plugin-help', // This should be unique for the screen.
-				'title'   => 'Special Instructions',
-				'content' => '<p>This is the content for the tab.</p>',
-				// Use 'callback' instead of 'content' for a function callback that renders the tab content.
-			)
-		);
-	}
-
 	public static function test_admin_help_tab() {
 		$test_help_page = add_options_page( __( 'Test Help Tab Page', 'text_domain' ), __( 'Test Help Tab Page', 'text_domain' ), 'manage_options', 'text_domain', 'test_help_admin_page' );
 
@@ -260,29 +219,5 @@ class Help_Menus {
 		}
 		echo '</pre>';
 		return;
-	}
-
-	public static function move_options_page_admin_menu( $menu_order ) {
-		global $menu;
-
-		$infra_admin_menu = $menu[81];
-
-		if ( ! empty( $infra_admin_menu ) ) {
-
-			// Add 'woocommerce' to bottom of menu
-			 $menu[37] = $infra_admin_menu;
-
-			// Remove initial 'woocommerce' appearance
-			unset( $menu[81] );
-		}
-		return $menu_order;
-	}
-
-	public static function remove_some_admin_menus() {
-		global $menu, $submenu;
-		remove_menu_page( 'edit-comments.php' );
-		remove_menu_page( 'edit.php' );
-		remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
-		remove_submenu_page( 'themes.php', 'theme-editor.php' );
 	}
 }

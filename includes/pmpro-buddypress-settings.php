@@ -110,6 +110,11 @@ function pmpro_bp_buddpress_admin_page() {
 	<div class="wrap">
 	<h2>PMPro BuddyPress Settings</h2>
 	<p class="description">The PMPro BuddyPress Add On enhances your BuddyPress site in a number of ways. We've included helpful information above to get you started. Click on the help tab in the upper right.</p>
+	<?php
+	if ( class_exists( 'Help_Welcome_Menus' ) ) {
+		echo '<h2>Help_Welcome_Menus CLASS Exists</h2>';
+	}
+	?>
 		<form action="" method="post" enctype="multipart/form-data">
 		
 		<table class="form-table">
