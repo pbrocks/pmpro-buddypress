@@ -1,7 +1,7 @@
 <?php
-/*
-	Code to edit the BuddyPress directory.
-*/
+/**
+ * Code to edit the BuddyPress directory.
+ */
 
 function pmpro_bp_bp_pre_user_query_construct( $query_array ) {
 	global $pmpro_bp_members_in_directory;
