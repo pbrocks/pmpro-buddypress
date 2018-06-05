@@ -1,24 +1,48 @@
 <?php
-/*
- Plugin Name: Paid Memberships Pro - BuddyPress Add On
- Plugin URI: https://www.paidmembershipspro.com/add-ons/buddypress-integration
- Description: Manage access to your BuddyPress Community using Paid Memberships Pro.
- Version: 0.1
- Author: Paid Memberships Pro
- Author URI: https://www.paidmembershipspro.com
- Text Domain: pmpro-buddypress
+/**
+ * Plugin Name: Paid Memberships Pro - BuddyPress Add On
+ * Plugin URI: https://www.paidmembershipspro.com/add-ons/buddypress-integration
+ * Description: Manage access to your BuddyPress Community using Paid Memberships Pro.
+ * Version: 0.1
+ * Author: Paid Memberships Pro
+ * Author URI: https://www.paidmembershipspro.com
+ * Text Domain: pmpro-buddypress
  */
 
-/*
-	includes
-*/
-define('PMPROBP_DIR', dirname(__file__));
-require_once(PMPROBP_DIR . '/includes/pmpro-buddypress-settings.php');
-require_once(PMPROBP_DIR . '/includes/membership-level-settings.php');
-require_once(PMPROBP_DIR . '/includes/restrictions.php');
-require_once(PMPROBP_DIR . '/includes/groups.php');
-require_once(PMPROBP_DIR . '/includes/directory.php');
-require_once(PMPROBP_DIR . '/includes/profiles.php');
+/**
+ * Detect plugin. For use in Admin area only.
+ */
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+$pmp = 'paid-memberships-pro/paid-memberships-pro.php';
+
+if ( is_plugin_active( $pmp ) ) {
+	$type = 'success';
+	$message = 'Paid Memberships Pro is active.';
+	// pmpro_admin_notice__variable( $message, $type );
+} else {
+	$type = 'error';
+	$message = 'Paid Memberships Pro is NOT active. Sorry, bud, no PMPro = No Go.';
+	// pmpro_admin_notice__variable( $message, $type );
+	return;
+}
+
+if ( defined( 'PMPRO_BASE_FILE' ) ) {
+	define( 'PMPROBP_DIR', dirname( __file__ ) );
+} else {
+	return 'Sorry, bud, no PMPro = No Go';
+}
+
+
+/**
+ * includes
+ */
+define( 'PMPROBP_DIR', dirname( __file__ ) );
+require_once( PMPROBP_DIR . '/includes/pmpro-buddypress-settings.php' );
+require_once( PMPROBP_DIR . '/includes/membership-level-settings.php' );
+require_once( PMPROBP_DIR . '/includes/restrictions.php' );
+require_once( PMPROBP_DIR . '/includes/groups.php' );
+require_once( PMPROBP_DIR . '/includes/directory.php' );
+require_once( PMPROBP_DIR . '/includes/profiles.php' );
 
 /* Register activation hook. */
 register_activation_hook( __FILE__, 'pmpro_bp_admin_notice_activation_hook' );
@@ -79,3 +103,13 @@ function pmpro_bp_plugin_row_meta( $links, $file ) {
 	return $links;
 }
 add_filter( 'plugin_row_meta', 'pmpro_bp_plugin_row_meta', 10, 2 );
+
+
+function pmpro_admin_notice__variable( $message, $type ) {
+	?>
+	<div class="notice notice-<?php echo $type; ?> is-dismissible">
+		<p><?php _e( $message . ' Done!', 'paid-memberships-pro' ); ?></p>
+	</div>
+	<?php
+}
+// add_action( 'admin_notices', 'pmpro_admin_notice__variable' );
