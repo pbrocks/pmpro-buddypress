@@ -9,8 +9,9 @@
  Text Domain: pmpro-buddypress
  */
 
+include 'pmpro-buddypress-debug.php';
 /*
-    includes
+	includes
 */
 define( 'PMPROBP_DIR', dirname( __FILE__ ) );
 define( 'PMPROBP_BASENAME', plugin_basename( __FILE__ ) );
