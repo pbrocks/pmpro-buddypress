@@ -22,13 +22,13 @@ boone was kind enough to add the multi_format var awhile back so that we don’t
 * [x] checked   # [checkbox:checked]
 * [X] checked   # [checkbox:checked]
 * .
-- [ ]          # [checkbox:unchecked]
-- [-]          # '[-]'
-- [o]          # '[o]'
-- [O]          # '[O]'
-- .
-- \[ ]         # [checkbox:unchecked]
-- /[ ]         # '/[ ]'
+* [ ]          # [checkbox:unchecked]
+* [-]          # '[-]'
+* [o]          # '[o]'
+* [O]          # '[O]'
+* .
+* \[ ]         # [checkbox:unchecked]
+* /[ ]         # '/[ ]'
 - \\[ ]        # '\[ ]'
 - \[-]         # '\[-]' 
 - \[o]         # `\[o]'
