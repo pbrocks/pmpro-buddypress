@@ -39,7 +39,7 @@ add_action( 'update_user_meta', 'pmpro_bp_update_user_meta', 10, 4 );
 function pmpro_bp_add_user_meta( $user_id, $meta_key, $meta_value ) {
 	pmpro_bp_update_user_meta( null, $user_id, $meta_key, $meta_value );
 }
-add_action( 'add_user_meta', 'pmpro_bp_add_user_meta', 10, 3 );
+// add_action( 'add_user_meta', 'pmpro_bp_add_user_meta', 10, 3 );
 
 /**
  * When xprofile is updated, see if we need to update user meta.
