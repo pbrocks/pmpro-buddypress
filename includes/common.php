@@ -108,11 +108,17 @@ function pmpro_bp_get_user_options( $user_id = null ) {
 			$pmpro_bp_all_options['pmpro_bp_member_directory'] = max( $pmpro_bp_all_options['pmpro_bp_member_directory'], $pmpro_bp_options['pmpro_bp_member_directory'] );
 
 			// groups to add
-			// $pmpro_bp_all_options['pmpro_bp_group_automatic_add'] = array_unique( array_merge( (array) $pmpro_bp_all_options['pmpro_bp_group_automatic_add'], (array) $pmpro_bp_options['pmpro_bp_group_automatic_add'] ) );
+			if ( ! empty( $pmpro_bp_all_options['pmpro_bp_group_automatic_add'] ) ) {
+				$pmpro_bp_all_options['pmpro_bp_group_automatic_add'] = array_unique( array_merge( (array) $pmpro_bp_all_options['pmpro_bp_group_automatic_add'], (array) $pmpro_bp_options['pmpro_bp_group_automatic_add'] ) );
+			}
 			// groups to invite
-			// $pmpro_bp_all_options['pmpro_bp_group_can_request_invite'] = array_unique( array_merge( (array) $pmpro_bp_all_options['pmpro_bp_group_can_request_invite'], (array) $pmpro_bp_options['pmpro_bp_group_can_request_invite'] ) );
+			if ( ! empty( $pmpro_bp_all_options['pmpro_bp_group_can_request_invite'] ) ) {
+				$pmpro_bp_all_options['pmpro_bp_group_can_request_invite'] = array_unique( array_merge( (array) $pmpro_bp_all_options['pmpro_bp_group_can_request_invite'], (array) $pmpro_bp_options['pmpro_bp_group_can_request_invite'] ) );
+			}
 			// member types
-			// $pmpro_bp_all_options['pmpro_bp_member_types'] = array_unique( array_merge( (array) $pmpro_bp_all_options['pmpro_bp_member_types'], (array) $pmpro_bp_options['pmpro_bp_member_types'] ) );
+			if ( ! empty( $pmpro_bp_all_options['pmpro_bp_member_types'] ) ) {
+				$pmpro_bp_all_options['pmpro_bp_member_types'] = array_unique( array_merge( (array) $pmpro_bp_all_options['pmpro_bp_member_types'], (array) $pmpro_bp_options['pmpro_bp_member_types'] ) );
+			}
 		}
 	}
 
