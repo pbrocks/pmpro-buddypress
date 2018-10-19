@@ -1,16 +1,16 @@
 <?php
 /*
- Plugin Name: Paid Memberships Pro - BuddyPress Add On
+ Plugin Name: Paid Memberships Pro - BuddyPress Add On 121
  Plugin URI: https://www.paidmembershipspro.com/add-ons/buddypress-integration
  Description: Manage access to your BuddyPress Community using Paid Memberships Pro.
- Version: 1.2
- Author: Paid Memberships Pro
+ Version: 1.2.1
+ Author: Paid Memberships Pro pb
  Author URI: https://www.paidmembershipspro.com
  Text Domain: pmpro-buddypress
  */
 
 /*
-    includes
+	includes
 */
 define( 'PMPROBP_DIR', dirname( __FILE__ ) );
 define( 'PMPROBP_BASENAME', plugin_basename( __FILE__ ) );
